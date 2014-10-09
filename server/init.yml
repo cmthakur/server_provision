@@ -1,0 +1,28 @@
+- hosts: web
+  sudo: yes
+  remote_user: vagrant
+
+  tasks:
+  - name: Ensure Apts package cache is up to date
+    shell: apt-get update
+
+  - name: Ensure python-apt is present
+    command: apt-get install python-apt
+
+  - name: Ensure cURL is present and up to date
+    apt: pkg=curl state=latest
+
+  - name: Install the essential building tools
+    apt: pkg=build-essential state=latest
+
+  - name: Install Mysql Server
+    apt: pkg=nodejs
+
+  - name: Install RVM
+    command: curl -L https://get.rvm.io | bash -s stable
+
+  - name: Reload shell
+    command: source ~/.rvm/scripts/rvm
+
+  - name: rvm requirements
+    command: rvm requirements

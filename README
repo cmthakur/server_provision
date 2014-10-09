@@ -1,0 +1,12 @@
+vagrant up
+
+ansible-playbook -c paramiko -i server/hosts server/ssh.yml --ask-pass --sudo
+
+ansible-playbook -c paramiko -i server/hosts server/init.yml --ask-pass --sudo
+
+ansible-playbook -c paramiko -i server/hosts server/mysql.yml --ask-pass --sudo
+
+ansible-playbook -c paramiko -i server/hosts server/rvm_ruby.yml --ask-pass --sudo
+
+ansible-playbook -c paramiko -i server/hosts server/setup.yml --ask-pass --sudo
+

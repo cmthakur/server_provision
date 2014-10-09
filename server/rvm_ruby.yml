@@ -1,0 +1,15 @@
+- hosts: web
+  remote_user: vagrant
+
+  tasks:
+    - name: Install Ruby via RVM
+      command: rvm install ruby
+
+    - name: Use ruby by default
+      command: rvm use ruby --default
+
+    - name: Ensure current rubygems
+      command: rvm rubygems current
+
+    - name: Install RubyGems Rails
+      command: gem install rails

@@ -1,0 +1,13 @@
+- hosts: web
+  sudo: yes
+  remote_user: vagrant
+
+  tasks:
+    - name: Install Mysql Server
+      apt: pkg=libmysqlclient-dev
+
+    - name: Install Mysql Server
+      apt: pkg=libsqlite3-dev
+
+    - name: Install Mysql Server
+      apt: pkg=mysql-server
